@@ -4,7 +4,7 @@
 <p id="demo">Software Release Page</p>
 <script>
 
-let file = "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+let file = "https://staging.app.valist.io/api/exampleorg/binary/releases"
 fetch (file)
 .then(response => response.json())
 .then(data => console.log(data));
