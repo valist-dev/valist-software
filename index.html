@@ -2,7 +2,6 @@
 <html>
 <body>
 <center><h1>Software Release Page</h1></center>
-<p id="releases">Software Release Page</p>
 <script>
 
 const file = "https://staging.app.valist.io/api/exampleorg/binary/releases"
@@ -12,7 +11,7 @@ fetch (file)
 .then(releases => {
   releases.forEach(function (release){ 
     var p = document.createElement("a");
-    p.innerHTML = release.tag;
+    p.innerHTML = "${release.tag} - ${release.releaseCID};
     p.href = "https://ipfs.io/" + release.releaseCID;
 
     const lineBreak = document.createElement('br');
