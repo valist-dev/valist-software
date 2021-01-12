@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <body>
-<p id="demo">Software Release Page</p>
+<center><h1>Software Release Page</h1></center>
+<p id="releases">Software Release Page</p>
 <script>
 
 let file = "https://staging.app.valist.io/api/exampleorg/binary/releases"
+let releases;
+  
 fetch (file)
 .then(response => response.json())
-.then(data => console.log(data));
+.then(data => releases = data);
 
+for(key in releases) {
+    if(releases.hasOwnProperty(key)) {
+        var p = document.createElement("p");
+        p.innerHTML = "https://ipfs.io/" + releases[key].releaseCID;
+        document.body.appendChild(p)
+    }
+}
+  
 </script>
 </body>
 </html>
