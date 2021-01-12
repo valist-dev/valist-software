@@ -5,21 +5,20 @@
 <p id="releases">Software Release Page</p>
 <script>
 
-let file = "https://staging.app.valist.io/api/exampleorg/binary/releases"
-let releases;
+const file = "https://staging.app.valist.io/api/exampleorg/binary/releases"
   
 fetch (file)
 .then(response => response.json())
-.then(data => releases = data);
+.then(releases => {
+  releases.forEach(function (release){ 
+    var p = document.createElement("a");
+    p.innerHTML = "https://ipfs.io/ipfs/" + release.releaseCID;
+    p.href = "https://ipfs.io/" + release.releaseCID;
 
-releases.forEach(function (release){ 
-  var p = document.createElement("a");
-  p.innerHTML = "https://ipfs.io/ipfs/" + release.releaseCID;
-  p.href = "https://ipfs.io/" + release.releaseCID;
-  
-  const lineBreak = document.createElement('br');
-  document.body.appendChild(lineBreak);
-  document.body.appendChild(p);
+    const lineBreak = document.createElement('br');
+    document.body.appendChild(lineBreak);
+    document.body.appendChild(p);
+  });
 });
   
 </script>
