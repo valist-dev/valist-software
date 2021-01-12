@@ -12,7 +12,7 @@ fetch (file)
 .then(releases => {
   releases.forEach(function (release){ 
     var p = document.createElement("a");
-    p.innerHTML = "https://ipfs.io/ipfs/" + release.tag;
+    p.innerHTML = release.tag;
     p.href = "https://ipfs.io/" + release.releaseCID;
 
     const lineBreak = document.createElement('br');
