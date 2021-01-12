@@ -1,2 +1,2 @@
 # valist-software
-A valist software example.
+An example static software release page powered by valist and github pages.
